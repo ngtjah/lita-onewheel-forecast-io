@@ -68,7 +68,7 @@ module ForecastIo
 
       Lita.logger.debug "q & g #{query.inspect} #{geocoded.inspect}"
       if (query.nil? or query.empty?) and geocoded.nil?
-        query = 'Portland, OR'
+        query = 'Colorado Springs, CO 80919'
       end
 
       unless geocoded
