@@ -132,7 +132,7 @@ module Lita
       route(/^dailybarometer\s*$/i, :handle_irc_daily_pressure)
       route(/^dailybarometer\s+(.+)/i, :handle_irc_daily_pressure)
 
-      route(/^weathercommands/i, :handle_irc_daily_pressure,
+      route(/^weathercommands/i, :handle_irc_weathercommands,
             help: { '!weathercommands' => 'A bunch more weather commands.' }
       )
 
