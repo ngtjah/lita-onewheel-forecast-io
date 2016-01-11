@@ -169,7 +169,8 @@ module Lita
             help: { '!dailypressure [location]' => '7 day barometric pressure report for [location].'})
       route(/^dailybarometer\s*$/i, :handle_irc_daily_pressure)
       route(/^dailybarometer\s+(.+)/i, :handle_irc_daily_pressure,
-            help: { '!dailybarometer [location]' => 'Alias for !dailypressure.'})
+            help: {'!dailybarometer [location]' => 'Alias for !dailypressure.',
+                   '!dailybarometer2 [location]' => 'Alias for !dailypressure2.'})
 
     end
 
