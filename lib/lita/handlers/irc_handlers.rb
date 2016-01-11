@@ -1,6 +1,51 @@
 module ForecastIo
   module IrcHandlers
     #-# Handlers
+    def handle_irc_weathercommands(response)
+      help = {'!ansitemp [location]' => 'The 24h temperature scale for [location].',
+              '!dailytemp [location]' => '48h temperature scale for [location].',
+              '!7day [location]' => '7 day temperature scale, featuring highs and lows.',
+              '!weekly [location]' => 'Alias for !7day.',
+              '!asciitemp [location]' => 'Like ansitemp, but with less ansi.',
+              '!ieeetemp [location]' => 'The 24h temperature scale for [location], kelvin-style.',
+              '!forecastallthethings [location]' => 'A huge dump of most available info for [location].',
+              '!cond[itions] [location]' => 'A single-line summary of the conditions at [location].',
+              '!rain [location]' => 'Magic Eightball response to whether or not it is raining in [location] right now.',
+              '!snow [location]' => 'Magic Eightball response to whether or not it is snowing in [location] right now.',
+              '!geo [location]' => 'A simple geo-lookup returning GPS coords.',
+              '!alerts [location]' => 'NOAA alerts for [location].',
+              '!neareststorm [location]' => 'Nearest storm distance for [location].',
+              '!set scale [c|f|k]' => 'Set the scale to your chosen degrees.',
+              '!set scale' => 'Toggle between C and F scales.',
+              '!ansihumidity [location]' => '48h humidity report for [location].',
+              '!dailyhumidity [location]' => '7 day humidity report.',
+              '!ansirain [location]' => '60m rain chance report for [location].',
+              '!ansisnow [location]' => 'Alias for !ansirain.',
+              '!dailyrain [location]' => '48h rain chance report for [location].',
+              '!dailysnow [location]' => 'Alias for !dailyrain.',
+              '!7dayrain [location]' => '7 day rain chance report for [location].',
+              '!weeklyrain [location]' => 'Alias for !7dayrain.',
+              '!weeklysnow [location]' => 'Alias for !7dayrain.',
+              '!ansiintensity [location]' => '60m rain intensity report for [location].',
+              '!asciirain [location]' => '60m rain chance report for [location], ascii style!',
+              '!ansisun [location]' => '48 hour chance-of-sun report for [location].',
+              '!ansisun [location]' => '7 day chance-of-sun report for [location].',
+              '!asciisun [location]' => '7 day chance-of-sun report for [location].',
+              '!ansiwind [location]' => '24h wind speed/direction report for [location].',
+              '!asciiwind [location]' => '24h wind speed/direction report for [location], ascii style.',
+              '!dailywind [location]' => '7 day wind speed/direction report for [location].',
+              '!asciicloud [location]' => '24h cloud cover report for [location].',
+              '!ansicloud [location]' => '24h cloud cover report for [location].',
+              '!ansiozone [location]' => '24h ozone level report for [location].',
+              '!ansipressure [location]' => '48h barometric pressure report for [location].',
+              '!ansibarometer [location]' => 'Alias for !ansipressure.',
+              '!ansibarometer [location]' => 'Alias for !ansipressure.',
+              '!dailypressure [location]' => '7 day barometric pressure report for [location].',
+              '!dailybarometer [location]' => 'Alias for !dailypressure.'}
+      help.each do |command, description|
+        response.reply "#{command} - #{description}"
+      end
+    end
     def handle_irc_forecast(response)
       location = geo_lookup(response.user, response.match_data[1])
       forecast = get_forecast_io_results(response.user, location)
