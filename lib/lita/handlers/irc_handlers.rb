@@ -28,7 +28,6 @@ module ForecastIo
               '!weeklysnow [location]' => 'Alias for !7dayrain.',
               '!ansiintensity [location]' => '60m rain intensity report for [location].',
               '!asciirain [location]' => '60m rain chance report for [location], ascii style!',
-              '!ansisun [location]' => '48 hour chance-of-sun report for [location].',
               '!ansisun [location]' => '7 day chance-of-sun report for [location].',
               '!asciisun [location]' => '7 day chance-of-sun report for [location].',
               '!ansiwind [location]' => '24h wind speed/direction report for [location].',
@@ -38,7 +37,6 @@ module ForecastIo
               '!ansicloud [location]' => '24h cloud cover report for [location].',
               '!ansiozone [location]' => '24h ozone level report for [location].',
               '!ansipressure [location]' => '48h barometric pressure report for [location].',
-              '!ansibarometer [location]' => 'Alias for !ansipressure.',
               '!ansibarometer [location]' => 'Alias for !ansipressure.',
               '!dailypressure [location]' => '7 day barometric pressure report for [location].',
               '!dailybarometer [location]' => 'Alias for !dailypressure.'}
